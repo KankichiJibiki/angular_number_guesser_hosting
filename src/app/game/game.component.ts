@@ -27,6 +27,7 @@ export class GameComponent implements OnInit {
     if(this.inputNum > 100  || this.inputNum <= 0) return;
 
     this.counter++;
+
     
     this.playerFinalAns = this.inputNum;
     this.diff = Math.abs(this.correctAns-this.playerFinalAns);
@@ -35,6 +36,7 @@ export class GameComponent implements OnInit {
       this.isCorrect = true;
       this.clearMsg = `It took a player ${this.counter} guesses. Play again?`;
     }
+    this.inputNum = {} as number;
   }
 
   reset(){
