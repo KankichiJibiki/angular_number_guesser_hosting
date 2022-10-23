@@ -7,11 +7,7 @@ import { GameModule } from './game/game.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    GameModule
-  ],
+  imports: [BrowserModule,GameModule,AppRoutingModule,],
   providers: [],
   bootstrap: [AppComponent]
 })
