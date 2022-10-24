@@ -1,0 +1,16 @@
+<div class="container flex m-auto h-screen justify-center">
+    <div class="border rounded-lg  m-auto my-auto p-10">
+        <div class="mb-3 mx-auto">
+            <div class="mb-3">
+                <label for="players" class="p-2">How many players to play?</label>
+                <input type="number" name="players" id="players" min="1" max="10" [(ngModel)]="playerAmount" class="border border-black p-1" required>
+            </div>
+            <div class="mx-auto w-full">
+                <button routerLink="game" class="border border-green-700 p-1 mx-auto w-full hover:opacity-60 rounded bg-green-300" (click)="startGame()" >Start</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

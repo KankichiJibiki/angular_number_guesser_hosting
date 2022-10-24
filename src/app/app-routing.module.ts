@@ -1,13 +1,15 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { GameComponent } from "./game/game.component";
+import { PlayersComponent } from "./players/players.component";
 
 const routes: Routes = [
-    {path: '', component: GameComponent},
+    {path: '', component: PlayersComponent},
+    {path: 'game', component: GameComponent},
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: true })],
+    imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
 })
 

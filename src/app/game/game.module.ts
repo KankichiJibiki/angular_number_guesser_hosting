@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameComponent } from './game.component';
-import { GuessComponent } from './guess/guess.component';
+import { GuessComponent } from './player/guess/guess.component';
 import { FormsModule } from '@angular/forms';
-import { GameService } from './game.service';
-
-
+import { GameService } from '../services/game.service';
+import { PlayerComponent } from './player/player.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
-  declarations: [GameComponent, GuessComponent],
+  declarations: [GameComponent, PlayerComponent, GuessComponent],
   providers: [GameService],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   exports: [GameComponent]
 })

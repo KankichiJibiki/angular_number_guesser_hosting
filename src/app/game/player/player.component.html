@@ -1,0 +1,9 @@
+<div class="my-3 border mx-auto rounded-lg p-5">
+    <h3 class="text-center">{{ player.name }}</h3>
+    <div>
+        <ng-container *ngIf="player.guess == 0">
+            <img [src]="player.img" [alt]="player.name" width="180px" height="80px">
+        </ng-container>
+        <app-guess [answer]="player.guess" [diff]="player.diff"></app-guess>
+    </div>
+</div>

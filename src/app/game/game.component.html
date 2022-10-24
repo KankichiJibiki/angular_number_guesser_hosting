@@ -1,22 +1,40 @@
 <div class="game container my-5 mx-auto">
+    <button 
+    class="bg-green-400 border-green-700 hover:opacity-70 p-2 w-32 rounded m-auto text-white"
+    (click)="back()"
+    routerLink="/"
+    >
+        <-Back
+    </button>   
     <h1 class="text-center text-3xl">Number Guessing Game</h1>
     <p class="mt-10 text-center">Player one enter a value between 1 and 100 to be guessed</p>
     <div class="mb-3 container flex flex-col justify-center p-2">
-        <input type="number" name="number" id="number" required (keyup.enter)="answerByPlayer()" [(ngModel)]="inputNum" class="p-2 border w-52 mx-auto border-black rounded" [disabled]="isCorrect">
+        <input type="number" name="number" id="number" required (keyup.enter)="answerByPlayer()" [(ngModel)]="inputNum" class="p-2 border w-52 mx-auto border-black rounded" [disabled]="isCorrect || counter >= 5">
 
-        <div *ngIf="isCorrect" class="flex justify-center w-full border my-4 p-3">
+        <div *ngIf="isCorrect || counter >= 5" class="flex justify-center w-full border my-4 p-3">
             <span class="p-3">
                 {{ clearMsg }}
             </span>
             <button 
-            *ngIf="isCorrect" 
             class="bg-purple-700 border hover:opacity-70 p-2 w-32 rounded text-white"
-            (click)="reset()"
+            (click)="resetGame()"
             >
                 Reset
             </button>
+            <button 
+            class="bg-green-400 border-green-700 hover:opacity-70 p-2 w-32 rounded text-white"
+            (click)="back()"
+            routerLink="/"
+            >
+                Back
+            </button>
         </div>
 
-        <app-guess [answer]="playerFinalAns" placeholder="number" [diff]="diff" [correctAns]="correctAns"></app-guess>
+        <div class="flex flex-wrap justify-around">
+            <ng-container *ngFor="let player of players;" class="flex flex-col">
+                <app-player [player]="player"></app-player>
+            </ng-container>
+        </div>
+        <router-outlet></router-outlet>
     </div>
 </div>

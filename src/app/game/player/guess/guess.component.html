@@ -1,0 +1,5 @@
+<div *ngIf="answer > 0">
+    <p class="text-center text-lg mb-4" [ngClass]="{'text-green-500': answer == correctAns, 'text-red-700': answer != correctAns}">Guess: {{ answer }}</p>
+    <img [src]="getImage()" [alt]="image" width="180px" height="80px">
+    <h3 [style.background-color]="getColor()" class="text-center">Hint: {{ getHint() }}</h3>
+</div>
